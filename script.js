@@ -136,7 +136,7 @@ function toggleSidebar() {
   }
 
 function data_thingspeak(){
-    const url = 'https://api.thingspeak.com/channels/2172969/feeds.json?results=1';
+    const url = 'https://api.thingspeak.com/channels/2823421/feeds.json?results=1';
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -213,7 +213,7 @@ function wkt_on(){
     var onl = document.getElementById('ind_online');
     document.getElementById('data-container').innerHTML = waktu_online;            
     
-    if(waktu_online<30){
+    if(waktu_online<60){
         onl.style.backgroundColor = "rgb(59, 225, 89)";
     }else{
         onl.style.backgroundColor = "red";
