@@ -136,7 +136,7 @@ function toggleSidebar() {
   }
 
 function data_thingspeak(){
-    const url = 'https://api.thingspeak.com/channels/2823421/feeds.json?results=1';
+    const url = 'https://api.thingspeak.com/channels/2172969/feeds.json?results=1';
         fetch(url)
             .then(response => response.json())
             .then(data => {
