@@ -43,9 +43,123 @@
             </div>
         </div>
     </div>
+    - - - - - - - - - Coming Soon - - - - - - - - -
+    <div class="container txt2">
+        <h3>Kebun Melon Hidroponik</h3>
+        <div id="container_gauges_kandang_atas"></div>
+        <div style="display:flex;">
+        <div class="card_widget">
+            <div class="container_group_widget">
+                <div class="wrapper_group_widget txt1" style="display: grid;width: 30vw;">
+                <div class="txt1 tengah">Usia Melon</div>
+                    <div class="card_group_widget tengah">
+                        <div class="card_group_widget logo_ayam ">
+                            <div class="gambar_widget" style="width: 10vw; height: 10vw;">
+                                <img class="logo_ayam" src="https://www.svgrepo.com/show/263312/sprout-tree.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card_group_widget tengah txt1" style="width: auto;justify-content: center;">
+                            <span class="txt1" id="usia_melon">--</span>
+                    </div>
+                    <div class="card_group_widget">
+                        <div class=""></div>
+                    </div>
+                </div>    
+            </div>                  
+        </div>
+        <div class="card_widget">
+            <div class="container_group_widget" style="width: 50vw;height: 31vw;box-shadow: none;">
+                <div class="txt2" style="margin: 0vw 5vw 2vw 5vw;"></div> 
+                <div class="">
+                    <div class="txt1 keterangan_huruf" style="margin: 0vw 0vw 1vw 3vw;">
+                        <span class="">Populasi :</span>
+                        <span id="populasi">0</span>
+                        <span>Batang</span><br>
+                        <span class="">Abcde :</span>
+                        <span id="kecepatan_angin_atas">0</span>
+                        <span>xxx</span>
+                    </div>
+                    <div class="txt1 keterangan_huruf" style="margin: 0vw 3vw 0vw 3vw;">
+                        <span class="">Efghijk : 0 xxx</span>
+                        <span id="data_selisih"></span>
+                    </div>
+                </div>  
+            </div>                  
+        </div>
+    </div>
+        <button class="txt3" id="button_bar1" style="margin-left: 3vw;border: 0.1vw solid rgb(255, 255, 255);padding: 1vw;background-color: rgb(248, 248, 248);width: 85vw;">Lihat Grafik</button>
+        <div id="hidden_chart1" style="display: none;">
+            Data 24 jam terakhir
+            <canvas id="grafik" style="height: 75vw;width: 100vw;"></canvas>
+        </div>
+        <br>
+        <div class="wrapper">
+        <h3>Analisis Cepat</h3>
+            <div class="card2">
+                <div class="container_group_widget txt1" style="width: 85vw;box-shadow: none; border-radius: 0vw;">                
+                    <div class="wrapper_group_widget" style="flex-wrap: nowrap;width:80vw; justify-content: left;">
+                        <div class="card_group_widget ">
+                            <div class="card_group_widget logo_analisa" style="margin-top: 20%;">
+                                <div class="gambar_widget" style="width: 20vw; height: 20vw;">
+                                    <img id="gambar_analisa" class="logo_analisa" src="" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="txt1 ">
+                                <span id="judul_analisa">-</span>
+                            </div>
+                            <div class="txt1 keterangan_huruf" style="width: 60vw;">
+                                <span id="isi_analisa">-</span>
+                            </div>
+                            <div class="txt1 keterangan_huruf">
+                                <span id="dsp">-</span>
+                            </div>                                        
+                        </div>
+                        <div class="card_group_widget">
+                            <div class=""></div>
+                        </div>
+                    </div>   
+                                                           
+                </div>
+            </div>
+        </div>
+        <div><h3>Air Tersisa</h3></div><br>
+        <div class="card2">
+            <div class="water-level-control">
+                <div class="glass-container">
+                    <div class="glass">
+                        <div id="water" class="water"></div>
+                    </div>
+                </div>
+            </div> 
+            <div>
+                <div class="txt3" id="data_air_1" style="padding: 0vw 3vw 0vw 5vw;"></div>
+                <div class="txt3" id="data_air_2" style="padding: 0vw 0vw 0vw 7vw;"></div>
+            </div>
+        </div>
+        <div class="txt3 keterangan_huruf" style="margin: 3vw 0vw 3vw 3vw;">
+            <span class="" style="margin-right: 0vw;">Sisa Air</span>
+            <span>:</span>
+            <span id="liter_air_atas"></span>
+            <span class="keterangan widget1">liter,</span>
+            <span id="persen_air_atas"></span>
+            <span class="keterangan widget1">%</span>
+        </div>
+         <br>
+    </div>
     Coming Soon
     
     
+    <button id="toggleButton" style="margin: 3vw;">Lihat Teks Data</button>
+    <div id="hiddenText" style="display: none;">
+        <div class="container" style="box-shadow: none;">
+            <div class="wrapper">
+                <div class="card txt1" style="overflow-y: auto;" id="messages"></div>
+            </div>
+        </div>
+    </div>
     <div style="margin: 30vw;"></div>
     <div class="mrg3" style="font-size: 3vw;">
         <span>Pembaruan Web terbaru dapat dilihat pada</span>

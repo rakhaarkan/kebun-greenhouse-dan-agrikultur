@@ -4,7 +4,7 @@ var penampung_json_3;
 var penampung_json_4;
 var penampung_data_waktu;
 const randomFraction = Math.random();
-const randomValue = 5000;//Math.floor(randomFraction * (5000 - 2000 + 1)) + 2000;
+const randomValue = 4560;//Math.floor(randomFraction * (5000 - 2000 + 1)) + 2000;
 
 var suhu_atas = 0;
 var suhu_tengah = 0;
@@ -159,16 +159,17 @@ function data_thingspeak(){
                 //penguraiJson(1,fieldData_2,2);
                 //penguraiJson(1,fieldData_3,3);
                 //penguraiJson(1,fieldData_4,4);
-                //document.getElementById('messages').innerHTML = 'field1 : ' + fieldData_1 + ', field2 : ' + fieldData_2 + ', field3 : ' + fieldData_3 + ', field4 : ' + fieldData_4;
+                document.getElementById('messages').innerHTML = 'field1 : ' + fieldData_1 + ', field2 : ' + fieldData_2 + ', field3 : ' + fieldData_3 + ', field4 : ' + fieldData_4;
                 var loading_1 = document.getElementById("loading_1");
                 loading_1.style.display = "none";
                 eksekutor();
+                updateTime();
             })
             //.catch(error => console.error('Error fetching data:', error));           
 }
 
 function eksekutor(){
-    updateTime();
+    
     
 }
 
@@ -185,6 +186,14 @@ function updateTime() {
     const hours = formatTime(now.getHours());
     const minutes = formatTime(now.getMinutes());
     const seconds = formatTime(now.getSeconds());
+    /*const dayOfWeek = days[waktu_thingspeak.getDay()];
+    const dayOfMonth = waktu_thingspeak.getDate();
+    const month = months[waktu_thingspeak.getMonth()];
+    const year = waktu_thingspeak.getFullYear();
+    const hours = formatTime(waktu_thingspeak.getHours());
+    const minutes = formatTime(waktu_thingspeak.getMinutes());
+    const seconds = formatTime(waktu_thingspeak.getSeconds());*/
+
 
     const currentDate = `${dayOfWeek}, ${dayOfMonth} ${month} ${year}`;
     const currentTime = `${hours}:${minutes}:${seconds}`;
@@ -223,3 +232,17 @@ function wkt_on(){
 function mapNilai(nilai, dariMin, dariMax, keMin, keMax) {
     return (nilai - dariMin) * (keMax - keMin) / (dariMax - dariMin) + keMin;
 }
+
+const toggleButton = document.getElementById("toggleButton");
+//const toggleButton2 = document.getElementById("toggleButton2");
+const hiddenText = document.getElementById("hiddenText");
+
+toggleButton.addEventListener('click', function() {
+    if (hiddenText.style.display == "none") {
+        hiddenText.style.display = "block";
+        toggleButton.textContent = "Sembunyikan Teks";
+    } else {
+        hiddenText.style.display = "none";
+        toggleButton.textContent = "Lihat Teks Data";
+    }
+});
