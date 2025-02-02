@@ -250,19 +250,14 @@ toggleButton.addEventListener('click', function() {
 function navigate(event, url) {
     event.preventDefault(); // Mencegah link membuka halaman baru
 
-    // Ambil hanya bagian path tanpa domain
-    const currentPath = new URL(window.location.href).pathname;
+    const currentPath = window.location.pathname;
     const targetPath = new URL(url, window.location.origin).pathname;
 
     if (currentPath !== targetPath) {
-        history.pushState(null, "", url); // Ubah URL tanpa reload
-        console.log("Navigasi ke:", url);
+        const newUrl = url.includes("?") ? url + "&reload=1" : url + "?reload=1";
+        history.pushState(null, "", newUrl); // Paksa perubahan URL
+        console.log("Navigasi ke:", newUrl);
     } else {
         console.log("Halaman sudah aktif, tidak perlu reload.");
     }
 }
-
-// Event listener untuk menangani perubahan state saat tombol back/forward ditekan
-window.addEventListener("popstate", function () {
-    console.log("Kembali atau maju di history:", window.location.href);
-});
