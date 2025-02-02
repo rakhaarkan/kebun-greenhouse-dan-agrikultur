@@ -250,7 +250,11 @@ toggleButton.addEventListener('click', function() {
 function navigate(event, url) {
     event.preventDefault(); // Mencegah link membuka halaman baru
 
-    if (window.location.href !== url) {
+    // Ambil hanya bagian path tanpa domain
+    const currentPath = new URL(window.location.href).pathname;
+    const targetPath = new URL(url, window.location.origin).pathname;
+
+    if (currentPath !== targetPath) {
         history.pushState(null, "", url); // Ubah URL tanpa reload
         console.log("Navigasi ke:", url);
     } else {
