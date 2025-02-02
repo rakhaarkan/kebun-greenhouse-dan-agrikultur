@@ -246,3 +246,19 @@ toggleButton.addEventListener('click', function() {
         toggleButton.textContent = "Lihat Teks Data";
     }
 });
+
+function navigate(event, url) {
+    event.preventDefault(); // Mencegah link membuka halaman baru
+
+    if (window.location.href !== url) {
+        history.pushState(null, "", url); // Ubah URL tanpa reload
+        console.log("Navigasi ke:", url);
+    } else {
+        console.log("Halaman sudah aktif, tidak perlu reload.");
+    }
+}
+
+// Event listener untuk menangani perubahan state saat tombol back/forward ditekan
+window.addEventListener("popstate", function () {
+    console.log("Kembali atau maju di history:", window.location.href);
+});
