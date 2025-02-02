@@ -248,15 +248,14 @@ toggleButton.addEventListener('click', function() {
 });
 
 function navigate(event, url) {
-    event.preventDefault(); // Mencegah link membuka halaman baru
+    event.preventDefault();
 
     const currentPath = window.location.pathname;
     const targetPath = new URL(url, window.location.origin).pathname;
 
     if (currentPath !== targetPath) {
-        const newUrl = url.includes("?") ? url + "&reload=1" : url + "?reload=1";
-        history.pushState(null, "", newUrl); // Paksa perubahan URL
-        console.log("Navigasi ke:", newUrl);
+        history.replaceState(null, "", url); // Paksa URL berubah tanpa reload
+        console.log("Navigasi ke:", url);
     } else {
         console.log("Halaman sudah aktif, tidak perlu reload.");
     }
