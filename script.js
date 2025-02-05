@@ -169,6 +169,17 @@ function data_thingspeak(){
 }
 
 function eksekutor(){
+    const gaugesHTML_atas = `
+        <div class="wrapper">
+        ${createGaugeCard('Suhu Atas', suhu_atas, 40, '20', '40', 'red')}
+        ${createGaugeCard('Kelembapan Atas', kelembapan_atas, 40, '0', '100', 'rgb(0, 218, 251)')}
+        ${createGaugeCard('Heat Index Atas', data_HI_atas,40, '100', '200', 'url(#GradientColor)')}
+        </div>
+    `;
+    document.getElementById('ket_ppm').textContent = 'Coming Soon';//'512 ppm';
+    document.getElementById('ket_ph').textContent = 'Coming Soon';//'5.4';
+    document.getElementById('ket_suhu_air').textContent = 'Coming Soon';//'28.3 °C';
+    document.getElementById('ket_ec').textContent ='Coming Soon';// '1.2'; 
     
     
 }
@@ -205,8 +216,7 @@ function updateTime() {
     const waktu_online = now - waktu_thingspeak;
     waktu_online2 = Math.floor(waktu_online / 1000);
 
-    document.getElementById('current-date').textContent = currentDate;
-    document.getElementById('current-time').textContent = currentTime;
+    ddocument.getElementById('current-time').textContent = currentTime;
     
 }
 
@@ -259,4 +269,40 @@ function navigate(event, url) {
 
     // Jika halaman berbeda, lakukan navigasi
     window.location.href = url;
+}
+
+function createGaugeCard(title, value_gauge, ukuran_1, minLabel, maxLabel, color, size = 10) {
+    var ukuran_2 = (-0.1 * ukuran_1 ** 2) + (14 * ukuran_1) - 150;;
+    var lingkar_gauge = mapNilai(value_gauge, minLabel, maxLabel, ukuran_2, ukuran_2*0.25);
+    
+    return `
+        <div class="card_gauge" style="grid-template-rows: 1fr auto; gap: 1em;">
+            <div class="judul_widget">${title}</div>
+            <div class="skill" style="width: calc(20vw*var(--rasio-gauge));height: calc(20vw*var(--rasio-gauge));">
+                <div class="outer" style="width: 100%; height: 100%;">
+                    <div class="inner">
+                        <div id="number">
+                            <span class="keterangan widget1">${value_gauge}</span>
+                            <span>${title.includes('Kelembapan') ? '%' : '°'}</span>
+                        </div>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" 
+                         viewBox="0 0 100 100" style="width: 100%; height: 100%;">
+                        <defs>
+                            <linearGradient id="GradientColor">
+                                <stop offset="0%" stop-color="#e91e63" />
+                                <stop offset="100%" stop-color="#673ab7"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="50" r="${ukuran_1}" stroke-linecap="round" 
+                                style="stroke-dasharray: ${ukuran_2}; stroke-dashoffset: calc(0.25*${ukuran_2});"/>
+                        <circle cx="50" cy="50" r="${ukuran_1}" stroke-linecap="round" 
+                                style="stroke:${color}; stroke-dasharray: ${ukuran_2}; stroke-dashoffset: calc(${lingkar_gauge});"/>  
+                    </svg>
+                    <div class="ket_gauge_kiri">${minLabel}</div>
+                    <div class="ket_gauge_kanan">${maxLabel}</div>
+                </div>
+            </div>
+        </div>
+    `;
 }

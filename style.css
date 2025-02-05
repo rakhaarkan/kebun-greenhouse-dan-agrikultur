@@ -42,6 +42,27 @@
 .kipas_0{
     grid-area: kipas_0;
 }
+.sisa_air{
+    grid-area: sisa_a;
+}
+.suhu_air{
+    grid-area: suhu_a;
+}
+.ppm_air{
+    grid-area: ppm_a;
+}
+.ph_air{
+    grid-area: ph_a;
+}
+.ec_air{
+    grid-area: ec_a;
+}
+.intensitas_cahaya{
+    grid-area: inten_c;
+}
+
+
+
 
 .menu {
     grid-area: menu;
@@ -98,6 +119,18 @@
         "judul_head2"
     }
 
+.grid-detail_tanaman{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 0.5fr;
+    grid-template-areas:
+        "sisa_a ppm_a ph_a "
+        "suhu_a ec_a ec_a "
+        "inten_c inten_c inten_c "
+    }
+    
+
+    
 @media (min-width: 500px) {
     .grid-container {
         grid-template-areas:
@@ -714,8 +747,8 @@ svg{
 
 .glass-container {
     position: relative;
-    width: 30vw;
-    height: 50vw;
+    width: 20vw;
+    height: 40vw;
 }
 
 /* Bentuk gelas */
@@ -725,7 +758,7 @@ svg{
     height: 100%;
     border: 5px solid #0077b6;
     border-top: none;
-    border-radius: 0 0 40px 40px;
+    border-radius: 0 0 20px 20px;
     /*background: rgba(255, 255, 255, 0.8);*/
     overflow: hidden;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
