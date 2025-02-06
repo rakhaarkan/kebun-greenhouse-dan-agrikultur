@@ -216,8 +216,9 @@ function updateTime() {
     const waktu_online = now - waktu_thingspeak;
     waktu_online2 = Math.floor(waktu_online / 1000);
 
-    ddocument.getElementById('current-time').textContent = currentTime;
-    
+    document.getElementById('current-date').textContent = currentDate;
+    document.getElementById('current-time').textContent = currentTime;
+
 }
 
 function formatTime(time) {
