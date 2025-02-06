@@ -307,3 +307,17 @@ function createGaugeCard(title, value_gauge, ukuran_1, minLabel, maxLabel, color
         </div>
     `;
 }
+
+function updateProgress(value) {
+    // Pastikan nilai tetap dalam rentang 0 - 100
+    value = Math.max(0, Math.min(100, value));
+
+    // Update lebar progress bar
+    document.getElementById("progress-fill").style.width = value + "%";
+
+    // Update teks nilai
+    document.getElementById("progress-value").textContent = value + "%";
+}
+
+// Contoh penggunaan: Ubah nilai intensitas_cahaya
+setTimeout(() => updateProgress(75), 1000); // Simulasi perubahan nilai

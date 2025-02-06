@@ -127,21 +127,23 @@
         </div>
         <div><h3>Detail Nutrisi Air</h3></div><br>
         <div class="grid-detail_tanaman">
-            <div class="card2 sisa_air">
-                <div class="water-level-control">
-                    <div class="glass-container">
-                        <div class="glass">
-                            <div id="water" class="water"></div>
+            <div class="wrapper sisa_air" style="justify-content: center;">
+                <div class="card2">
+                    <div class="water-level-control">
+                        <div class="glass-container">
+                            <div class="glass">
+                                <div id="water" class="water"></div>
+                            </div>
                         </div>
-                    </div>
-                </div> 
+                    </div>  
+                </div>
                 <div class="txt3 keterangan_huruf" style="margin: 3vw 0vw 3vw 3vw;">
-                    <span class="" style="margin-right: 0vw;">Sisa Air</span>
-                    <span>:</span>
-                    <span id="liter_air_atas"></span>
-                    <span class="keterangan widget1">liter,</span>
-                    <span id="persen_air_atas"></span>
-                    <span class="keterangan widget1">%</span>
+                        <span class="" style="margin-right: 0vw;">Sisa Air</span>
+                        <span>:</span>
+                        <span id="liter_air_atas"></span>
+                        <span class="keterangan widget1">liter,</span>
+                        <span id="persen_air_atas"></span>
+                        <span class="keterangan widget1">%</span>
                 </div>
             </div>
             <div class="suhu_air">
@@ -232,7 +234,13 @@
                     </div>                  
                 </div>
             </div>
-            
+            <div class="inten_cahaya intensitas-container">
+                <label for="intensitas_cahaya">Intensitas Cahaya</label>
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                <span id="progress-value">0%</span>
+            </div>
         </div>
         
          <br>
